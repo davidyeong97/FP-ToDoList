@@ -1,6 +1,8 @@
-const { json } = require("body-parser")
+const url = 'http://localhost:8080/todolist'
 
 const dataArea = document.querySelector('#dataArea')
+
+const addPageForm = document.getElementById('addPageForm')
 const addTask = document.querySelector('.addTask')
 const inputName = document.getElementById('inputName')
 const inputDescription = document.getElementById('inputDescription')
@@ -8,9 +10,22 @@ const inputAssignedTo = document.getElementById('inputAssignedTo')
 const inputStatus = document.getElementById('inputStatus')
 const inputDate = document.getElementById('inputDate')
 
+const backButton1 = document.getElementById("back-button-1")
+const backButton2 = document.getElementById("back-button-2")
+const addButton = document.getElementById("add-button")
+const addSubmitButton = document.getElementById("addsubmitbutton")
+
+const toggleAdd = () => {
+    document.getElementById('contentPage').classList.toggle('displayNone')
+    addPage.classList.toggle('displayNone')
+    document.getElementById('logout-button').classList.toggle('displayNone')
+    backButton2.classList.toggle('displayNone')
+    addButton.classList.toggle('displayNone')
+}
+
 // fetch
-async function 求其名() {
-    const loadData = await fetch('http://localhost:8080/todolist')
+async function renderContentPage() {
+    const loadData = await fetch(url)
     const jsonData = await loadData.json()
     const updatedhtml = jsonData.reduce((acc, element) => {
         return acc + `
@@ -53,42 +68,40 @@ async function 求其名() {
     dataArea.innerHTML = updatedhtml
 };
 
-求其名()
-
-console.log(inputName)
-console.log(inputDescription)
-console.log(inputAssignedTo)
-console.log(inputDate)
-console.log(inputStatus)
-
+renderContentPage()
 
 // POST
 addTask.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            id: testing,
-            name: inputName, 
-            description: inputDescription,
-            assignedto: inputAssignedTo,
-            duedate: inputDate,
-            status: inputStatus
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: 'testing',
+                name: inputName.value,
+                description: inputDescription.value,
+                assignedto: inputAssignedTo.value,
+                duedate: inputDate.value,
+                status: inputStatus.value
+            })
         })
-    })
+        .then(res => res.json())
+        .then(data => {
+            const dataArr = [];
+            dataArr.push(data);
+            renderContentPage(data);
+        })
+    toggleAdd()
+    addPageForm.reset();
 })
 
 
 
 
 // const editButton = document.getElementById("edit-button")
-const backButton1 = document.getElementById("back-button-1")
-const backButton2 = document.getElementById("back-button-2")
-const addButton = document.getElementById("add-button")
 
 // Toggle edit
 
@@ -105,14 +118,19 @@ const addButton = document.getElementById("add-button")
 
 // Toggle add
 
-const toggleAdd = () => {
-    document.getElementById('contentPage').classList.toggle('displayNone')
-    document.getElementById('addPage').classList.toggle('displayNone')
-    document.getElementById('logout-button').classList.toggle('displayNone')
-    backButton2.classList.toggle('displayNone')
-    addButton.classList.toggle('displayNone')
-}
+// const toggleAdd = () => {
+//     document.getElementById('contentPage').classList.toggle('displayNone')
+//     document.getElementById('addPage').classList.toggle('displayNone')
+//     document.getElementById('logout-button').classList.toggle('displayNone')
+//     backButton2.classList.toggle('displayNone')
+//     addButton.classList.toggle('displayNone')
+// }
 
-addButton.addEventListener("click", toggleAdd)
+
 backButton2.addEventListener("click", toggleAdd)
+addButton.addEventListener("click", toggleAdd)
 
+// addSubmitButton.addEventListener("click", async() => {
+// await toggleAdd();
+// await renderContentPage();
+// })

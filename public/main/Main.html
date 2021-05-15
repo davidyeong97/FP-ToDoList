@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </header>
-            
+
             <!-- Content page -->
             <div class="" id="contentPage">
                 <!-- content list -->
@@ -57,15 +57,15 @@
                                     <div class="row d-flex justify-content-center">
                                         ${element.description}
                                     </div>
-                                    
+
                                     <div class="row d-flex justify-content-center content-background-gray">
                                         ${element.assignedto}
                                     </div>
-                                    
+
                                     <div class="row d-flex justify-content-center">
                                         ${element.duedate}
                                     </div>
-                                    
+
                                     <div class="row d-flex justify-content-center content-background-gray">
                                         ${element.status}
                                     </div>
@@ -80,13 +80,13 @@
 
             <!-- Add task page -->
             <div class="displayNone" id="addPage">
-                <form class="addTask">
+                <form class="addTask" id="addPageForm">
                     <div class="form-group mx-2 px-2 py-3 mt-3">
                         <label for="inputAddress">Title</label>
                         <input type="text" class="form-control" id="inputName" placeholder="Title">
                     </div>
                     <div class="form-group mx-2 px-2 py-3">
-                    <label for="inputAddress2">Description</label>
+                        <label for="inputAddress2">Description</label>
                         <textarea class="form-control" id="inputDescription" placeholder="Details"></textarea>
                     </div>
                     <div class="form-group mx-2 px-2 py-3">
@@ -96,19 +96,19 @@
                     <div class="form-group d-flex justify-content-center mx-2 px-2 py-3">
                         <select class="custom-select my-1 mr-sm-2" id="inputStatus">
                             <option selected>Status...</option>
-                            <option value="1">Pending</option>
-                            <option value="2">Confirmed</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Confirmed">Confirmed</option>
                         </select>
                     </div>
                     <div class="form-group d-flex justify-content-center mx-2 px-2 py-3">
                         <input type="date" class="form-control" id="inputDate" name="date">
                     </div>
                     <div class="form-group d-flex justify-content-center mx-2 px-2 py-3">
-                        <button class="btn btn-primary" type="submit">Confirm</button>
+                        <button class="btn btn-primary" type="submit" id="addsubmitbutton">Confirm</button>
                     </div>
                 </form>
             </div>
-            
+
 
             <!-- edit task page -->
             <div class="displayNone" id="editPage">
@@ -118,7 +118,7 @@
                         <input type="text" class="form-control" id="inputAddress" placeholder="Title">
                     </div>
                     <div class="form-group mx-2 px-2 py-3">
-                    <label for="inputAddress2">Description</label>
+                        <label for="inputAddress2">Description</label>
                         <textarea class="form-control" id="inputAddress2" placeholder="Details"></textarea>
                     </div>
                     <div class="form-group mx-2 px-2 py-3">
