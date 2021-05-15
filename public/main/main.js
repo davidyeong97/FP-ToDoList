@@ -23,47 +23,47 @@ const toggleAdd = () => {
     addButton.classList.toggle('displayNone')
 }
 
-// fetch
+// GET
 async function renderContentPage() {
     const loadData = await fetch(url)
     const jsonData = await loadData.json()
     const updatedhtml = jsonData.reduce((acc, element) => {
         return acc + `
-        <div class="container-fluid">
+        <div class="container-fluid" data-id="${element.id}" >
         <div class="row content-background-1 py-3 py-md-3" style="box-shadow: 0 0 5px #333;">
-            <div class="col d-flex justify-content-center">
-                <button class="toolbutton" id="delete-button"><i class="fas fa-trash delete-icon"></i></button>
-            </div>
-            <div class="col-8 d-flex justify-content-center">
-                <div class="content-text titletext">${element.name}</div>
-            </div>
-            <div class="col d-flex justify-content-center">
-                <button class="toolbutton" id="edit-button"><i class="fas fa-chevron-right edit-icon"></i></button>
+        <div class="col d-flex justify-content-center">
+        <button class="toolbutton" id="delete-button"><i class="fas fa-trash delete-icon"></i></button>
+        </div>
+        <div class="col-8 d-flex justify-content-center">
+        <div class="content-text titletext">${element.name}</div>
+        </div>
+        <div class="col d-flex justify-content-center">
+        <button class="toolbutton" id="edit-button"><i class="fas fa-chevron-right edit-icon"></i></button>
             </div>
             <div class="container-fluid">
-                <div class="row p-3 mt-3 contenttext">
-                    <div class="col">
-                        <div class="row d-flex justify-content-center">
+            <div class="row p-3 mt-3 contenttext">
+            <div class="col">
+            <div class="row d-flex justify-content-center">
                             ${element.description}
-                        </div>
+                            </div>
                         
-                        <div class="row d-flex justify-content-center content-background-gray">
+                            <div class="row d-flex justify-content-center content-background-gray">
                             ${element.assignedto}
-                        </div>
-                        
-                        <div class="row d-flex justify-content-center">
+                            </div>
+                            
+                            <div class="row d-flex justify-content-center">
                             ${element.duedate}
                         </div>
                         
                         <div class="row d-flex justify-content-center content-background-gray">
-                            ${element.status}
+                        ${element.status}
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        `
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        `
     }, "")
     dataArea.innerHTML = updatedhtml
 };
@@ -98,6 +98,12 @@ addTask.addEventListener('submit', (e) => {
     addPageForm.reset();
 })
 
+// DELETE
+dataArea.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(e.target.parentElement.parentElement.parentElement.dataset.id)
+
+})
 
 
 
