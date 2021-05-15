@@ -98,10 +98,25 @@ addTask.addEventListener('submit', (e) => {
     addPageForm.reset();
 })
 
-// DELETE
+// DELETE & UPDATE
+
+
 dataArea.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(e.target.parentElement.parentElement.parentElement.dataset.id)
+    let deleteButtonPressed = e.target.id == 'delete-button'
+    let editButtonPressed = e.target.id == 'edit-button'
+
+    let id = e.target.parentElement.parentElement.parentElement.dataset.id
+
+    if (deleteButtonPressed) {
+        fetch(`${url}/?#${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(() => location.reload())
+
+    }
+
 
 })
 
