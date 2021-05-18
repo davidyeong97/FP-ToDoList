@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <!-- Login form -->
+    <div class="d-flex" id="loginForm">
+        <div class="col-sm-6 col-12 p-0 m-auto">
+            <div class="pt-3 pb-4"></div>
+
+            <div class=" pb-5">
+
+                <div class="text-center py-5 mb-5 topcolor">
+                    <div>
+                        <img src="./resources/image/undraw_profile_pic_ic5t.svg" class="icon">
+                    </div>
+                </div>
+
+                <form id='loginForm' class='not-show'>
+                    <div class="form-group row py-5 mx-0">
+                        <div class="col d-flex justify-content-center">
+                            <i class="fas fa-id-badge fa-2x"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="input-group mb-3 d-flex justify-content-center ">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                                <input type="text" class="form-control mr-3" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3 d-flex justify-content-center loginhidden">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                                <input type="text" class="form-control is-invalid mr-3" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                <div class="invalid-feedback">
+                                    Invalid!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row py-5">
+                        <div class="col d-flex justify-content-center">
+                            <i class="fas fa-lock fa-2x"></i>
+                        </div>
+                        <div class="input-group col-8 d-flex justify-content-center ">
+                            <label for="exampleInputPassword1"></label>
+                            <input type="password" class="form-control mr-3" id="exampleInputPasswordGood" placeholder="Password">
+                        </div>
+                        <div class="input-group col-8 d-flex justify-content-center loginhidden">
+                            <label for="exampleInputPassword1"></label>
+                            <input type="password" class="form-control is-invalid mr-3" id="exampleInputPasswordBad" placeholder="Password">
+                            <div class="invalid-feedback">
+                                Invalid!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center text-center pt-5 pb-1">
+                        <!-- change back to input type="submit" when server is ready -->
+                        <!-- <input type="submit" class="btn-lg loginbutton" value="Login"> -->
+                        <button type="button" class="btn-lg loginbutton" id="loginButton">Login</button>
+                    </div>
+                    <div class="row justify-content-center text-center">
+                        <div class="col py-5">
+                            <button type="button" class="btn-lg anotherbutton" id="createButton">Create Account</button>
+                        </div>
+                        <div class="col py-5">
+                            <button type="button" class="btn-lg anotherbutton" id="forgetButton">Forget Password</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- create account -->
+
+    <div class="d-flex notShow" id="createForm">
+
+        <div class="col-sm-6 col-12 p-0 m-auto">
+            <div class="pt-3 pb-4"></div>
+
+            <div class=" pb-5">
+
+
+
+
+                <div class="form-group row py-5 mx-0" id="fetchLoginForm">
+
+                    <div class="col-8 m-auto">
+
+                        <div class="input-group mb-3 d-flex justify-content-center ">
+                            <div class="container">
+                                <h3>Create Account</h3>
+                                <form action="/action_page.php">
+                                    <label for="usrname">Username</label>
+                                    <input type="text" id="usrname" name="usrname" required>
+
+                                    <label for="psw">Password</label>
+                                    <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+                                    <button type="button" class="btn-md anotherbutton mt-3 p-2" id="createSubmitButton">Submit</button>
+                                </form>
+
+                                <div id="message">
+                                    <h3>Password must contain the following:</h3>
+                                    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                                    <p id="number" class="invalid">A <b>number</b></p>
+                                    <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <!-- forget password -->
+
+    <div class="d-flex notShow" id="forgetPasswordForm">
+
+        <div class="col-sm-6 col-12 p-0 m-auto">
+            <div class="pt-3 pb-4"></div>
+
+            <div class=" pb-5">
+
+
+
+
+                <div class="form-group row py-5 mx-0">
+
+                    <div class="col-8 m-auto">
+
+                        <div class="input-group mb-3 d-flex justify-content-center ">
+                            <div class="container">
+                                <h3>Forget Password</h3><br>
+                                <ul>
+                                    <li>Backup E-mail Address</li>
+                                    <li>Backup Phone Number</li>
+                                </ul>
+                                <div>
+                                    <label for="usrname">Input E-mail or Phone Number</label>
+                                    <input type="text" id="backupEmail">
+                                    <button type="button" class="btn-md anotherbutton mt-3 p-2" id="forgetSubmitButton">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js " integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js " integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc " crossorigin="anonymous "></script>
+</body>
+
+</html>

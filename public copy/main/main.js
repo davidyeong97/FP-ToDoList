@@ -96,7 +96,6 @@ addTask.addEventListener('submit', (e) => {
                 status: inputStatus.value
             })
         })
-<<<<<<< Updated upstream
         .then(res => res.json())
         .then(data => {
             const dataArr = [];
@@ -106,10 +105,6 @@ addTask.addEventListener('submit', (e) => {
     toggleAdd()
     addPageForm.reset();
 })
-=======
-    })
-});
->>>>>>> Stashed changes
 
 // DELETE & UPDATE
 

@@ -1,0 +1,139 @@
+/* general style */
+
+html {
+    font-size: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 1.5rem;
+    }
+    /* input[type="checkbox"] { 
+        height: 3rem;
+        width: 3rem;
+    } */
+}
+
+html,
+body {
+    background-image: url("../resources/image/Large-Triangles.svg");
+}
+
+.page-background {
+    background-color: rgb(190, 190, 190);
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.top-icon {
+    font-size: 30px;
+    color: white;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.top-title {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.displayNone {
+    display: none;
+}
+
+/* tool bar section */
+
+.tool-bar-icon {
+    color: white;
+    font-size: 38px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.btn-4 {
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.toolbutton {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.fixingshit {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* content section */
+
+.content-background-gray {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.slider-text {
+    color: white;
+    font-size: 0.5rem;
+}
+
+.form-check-input {
+    height: 15px;
+    width: 15px;
+}
+
+.content-text {
+    color: white;
+}
+
+.edit-icon {
+    color: white;
+}
+
+.delete-icon {
+    color: white;
+    font-size: 16px;
+}
+
+.titletext {
+    font-size: 1.3rem;
+}
+
+.contenttext {
+    color: black;
+    background-color: white;
+    border: grey solid 6px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+}
+
+datalist {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    width: 100%;
+    font-size: 15px;
+}
+
+/* add page */
+
+#addPage label {
+    color: white;
+    font-size: 1.2rem;
+}
+
+
+/* edit page */
+#editPage label {
+    color: white;
+    font-size: 1.2rem;
+}
